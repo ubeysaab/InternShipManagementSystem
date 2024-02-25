@@ -62,10 +62,16 @@ picture {
   display: block;
 }
 
+
 /* utilities */
 .flex {
   display: flex;
-  justify-content: space-between;
+}
+
+.flex-center{
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .flow > *:where(:not(:first-child)) {
@@ -73,9 +79,114 @@ picture {
 }
 
 .glass {
-  background-color: rgba(255, 255, 255, 0.01);
-  backdrop-filter: blur(15px);
+  // background-color: rgba(255, 255, 255, 0.01);
+  // backdrop-filter: blur(15px);
+background: rgba( 255, 255, 255, 0.3 );
+box-shadow: 0 8px 32px 0 rgba(124, 128, 173, 0.07);
+backdrop-filter: blur( 20px );
+-webkit-backdrop-filter: blur( 20px );
+border-radius: 10px;
+border: 1px solid rgba( 255, 255, 255, 0.18 );
 }
+
+.border-red
+{
+  border: 2px solid red;
+}
+.border-blue
+{
+  border: 2px solid blue;
+}
+.border-green
+{
+  border: 2px solid green;
+}
+
+.w-full{
+  width: 100dvw;
+}
+.h-full{
+  height: 100dvh;
+}
+
+input {
+  padding: 15px;
+  margin-block: 10px;
+  border: 0.1px solid rgba(128, 128, 128,0.3);
+  border-radius: 0.5rem;
+  width: 100%;
+}
+input::placeholder{
+  color:  rgba(128, 128, 128,0.3);
+}
+
+input:focus{
+  outline: none;
+  border-color:  rgba(128, 128, 128,0.8);
+}
+input:focus::placeholder{
+  color:  rgba(128, 128, 128,0.8);
+}
+
+
+.form__page{
+  background: linear-gradient(
+      rgba(255, 255, 255, 0.7),
+      rgba(255, 255, 255, 0.3)
+    ),
+    url("https://images.pexels.com/photos/114979/pexels-photo-114979.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  .form__container{
+    padding: 2rem 4rem;
+    width: 90%;
+ 
+  
+}
+
+.form__title{
+  color: $primaryBlue;
+  display: block;
+  width: fit-content;
+  margin-inline: auto;
+  text-shadow: 5px 5px 6px #fff,-5px -5px 5px #fff;
+}
+
+.form__button{
+  width: 100%;
+  height: 50px;
+  padding: 10px;
+  background-color: $primaryBlue;
+  border-radius: 5px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: white;
+  margin-block: 10px;
+}
+
+
+
+ .form__error{
+  color: red;
+  text-transform: capitalize;
+  font-size: 12px;
+  display: none;
+  width: 70%;
+  text-wrap: wrap;
+}
+
+input:invalid:not(:focus)~ .form__error{
+  display: inline;
+}
+input[name="confirmPassword"]:invalid:focus ~ .form__error
+{
+  display: inline;
+}
+
+
 
 // Components
 
@@ -126,7 +237,7 @@ picture {
     height: calc(100dvh - 100px);
 
     background: url("./assets/illustration-flowing-conversation.svg");
-    background-size: 90% 90%;
+    background-size: 100% 100%;
     background-repeat: no-repeat;
     z-index: 99;
 
