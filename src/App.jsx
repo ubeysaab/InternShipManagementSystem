@@ -5,20 +5,14 @@ import { Link,Route,Routes,BrowserRouter} from 'react-router-dom'
 
 // - Import files and Components 
 import "./App.scss"
-import Home from './Routes/Home'
-import Register from './Routes/Register'
-import Login from './Routes/Login'
+import Views from './Routes/Views'
+
 
 function App() {
 
   return (
     <BrowserRouter className="app">
-    
-    <Routes className="container">
-      <Route path='/' element={<Home/>}></Route>
-      <Route path='/register' element={<Register/>}></Route>
-      <Route path='/login' element={<Login/>}></Route>
-    </Routes>
+      <Views/>
     </BrowserRouter>
   )
 }

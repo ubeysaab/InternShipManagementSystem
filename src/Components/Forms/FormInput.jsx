@@ -5,9 +5,7 @@ let {errorMessage,handleChange,...others} = props
   return (
     <>
     <div className='form__input '>
-      {/* <label>
-          {props.label}
-      </label> */}
+  
       <input 
       
       onChange={handleChange} 

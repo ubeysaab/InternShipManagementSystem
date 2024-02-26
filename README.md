@@ -8,5 +8,6 @@ When we using `useState` when ever we write a letter is automatically updates ou
 
 > React onBlur event is an event that triggers when an element loses focus
 
-
 it's look like foocused not a html attribute any more so we used :focus in css
+
+[live](https://frontend--cool-banoffee-acf8ad.netlify.app/)

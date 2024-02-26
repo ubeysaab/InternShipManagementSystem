@@ -1,13 +1,25 @@
 // Variables
 $pink: #eee;
-
+$someGreen:#67A5AE;
+$lightBlue:#C4DFE6;
 $primaryBlue: #00c7fa;
+$tealBlue:#1995AD;
+$lightGray:#F1F1F2;
+
+
+$fakeSize :1.5rem;
+
+$media-tablet: "only screen and (min-width : 768px)";
+$media-desktop: "only screen and (min-width : 1024px)";
+
+
 
 // Box Sizing Rules
 *,
 *::before,
 *::after {
   box-sizing: border-box;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
 /* Remove default margin */
@@ -33,9 +45,10 @@ a {
 }
 
 /* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
-ul[role="list"],
-ol[role="list"] {
+ul,
+ol {
   list-style: none;
+  margin: 0;
 }
 
 /* Set core root defaults */
@@ -188,6 +201,8 @@ input[name="confirmPassword"]:invalid:focus ~ .form__error
 
 
 
+
+
 // Components
 
 #root {
@@ -249,4 +264,185 @@ input[name="confirmPassword"]:invalid:focus ~ .form__error
     //     opacity: 0;
     //   }
   }
+
+
+
+// Dash Start here 
+.dashBoard {
+  position: relative;
+  background-color: $tealBlue;
+  @media #{$media-tablet} {
+    min-height: 200dvh;
+    margin: 0;
+    font-size: 1.25rem;
+    color: white;
+    display: grid;
+    grid-template-columns: 15rem 1fr;
+    gap: 2rem;
+    
+  }
+  
+
+  .dashBoard__list {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    padding: 1rem;
+    background-color: $lightBlue;
+    position: sticky;
+    top: 0;
+
+
+ 
+    a{
+      color:white;
+      font-weight: 900;
+      overflow-wrap: break-word;
+      word-wrap: break-word;
+      hyphens: auto;
+      white-space: normal;
+      text-shadow: 0.5px 0.5px 2px  black, 0.5px 0.5px 2px  black, -0.5px -0.5px 2px  black, -0.5px -0.5px 2px  black;
+      // padding-left: 1rem;
+      
+      
+    }
+
+    .activeLink{
+      display: block;
+      transform: scale(1.2);
+      border-bottom: 2px solid rgba(0,0,0,0.5);
+      padding-bottom: 2px;
+    
+      
+    }
+
+    @media #{$media-tablet} {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display: grid;
+      font-size: 2rem;
+      gap: 2rem; 
+      /*we do it with grid becasue it's more simple than select child add margin but not the first and last child  you can do it with flex but you need to add more line flex-direction so grid work perfectly */
+      padding-block: 2rem;
+      height: 100dvh;
+      width: 100%;
+      padding-left: 3rem;
+
+
+    
+      .activeLink{
+        border: none;
+        transform: none;
+        text-decoration: none;
+        display: block;
+        width: 100%;
+        background-color: $tealBlue;
+        border-radius: 100vw 0 0 100vw;
+        text-indent: 1rem;
+        position: relative;
+        view-transition-name: hello;
+      }
+      .activeLink::after,.activeLink::before{
+        content: "";
+        background-color:$lightBlue;
+        position: absolute;
+        right: 0;
+        width: $fakeSize;
+        height: $fakeSize;
+
+      }
+      ::view-transition-group(hello) {
+        /* ? The group here is "hello"  and the reason it's group  is this is like new pseudo element that we've got  with `view transitions` and we can choose the start and or the end of the animation. state or the group will be both of them and it based on the name between ()   */
+        animation-duration: 1.5s;
+        /*? when we do this we see the problem which is the transtion the name switching and cross fading over and this raise the one of the limitations of U transitions  which is ? when we wannt to name them every elemnt has to have its own   */
+      }
+      .activeLink::before{
+        top: calc(-1 * $fakeSize);
+        box-shadow: 5px 5px  0 5px $tealBlue;
+        border-radius: 0 0 100vw ;
+      }
+      .activeLink::after{
+        bottom:  calc(-1 * $fakeSize);
+        border-radius: 0 100vw 0 0;
+        box-shadow: 10px -10px 0  5px $tealBlue;
+       
+      }
+        
+      
+        
+      
+
+      
+    }
+  }
+
+}
+
+
+
+
+
+.posts{
+  padding: 1rem;
+}
+.postCard {
+  margin-block: 1rem;
+  padding: 15px;
+  border: 0.5px solid #d1d1d1;
+  border-radius: 12px;
+
+  .postCard__top{
+    display: flex;
+ 
+    .postCard__img {
+      width: 152px;
+      height: 152px;
+      
+      img{
+        border-radius: 10px;
+        max-height: 100%;
+      }
+    }
+
+    .postCard__titles{
+      padding-left: 0.8rem;
+    }
+  }
+
+  .postCard__down{
+    margin-top:1rem;
+    
+    p{
+      width: 90%;
+      display: -webkit-box;
+      -webkit-box-orient: 
+      vertical;
+      -moz-box-orient: vertical;
+      -webkit-line-clamp:2;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    line-height: 30px;
+
+    }
+
+    .postCard__readmore {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 1rem;
+
+      button{
+        padding: 10px 20px;
+        color: white;
+        background-color: $primaryBlue;
+        font-weight: 900;
+        text-align: center;
+        // TODO: ADD BOX SHADOW EFFECT ON HOVER TO SHOW LIKE IT IS NOW 
+        border-radius: 0.3rem;
+      }
+    }
+  }
+}
+ 
 }

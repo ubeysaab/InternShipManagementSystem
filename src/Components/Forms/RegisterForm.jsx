@@ -4,7 +4,7 @@ import { FaArrowLeftLong } from "react-icons/fa6";
 import { Link } from "react-router-dom";
 
 // TODO  Create inputs array and pass things using object distructuring
-import inputsData from "../inputs.js";
+import inputsData from "../../inputs.js";
 
 function RegisterForm() {
   let [inputs, setInputs] = useState({

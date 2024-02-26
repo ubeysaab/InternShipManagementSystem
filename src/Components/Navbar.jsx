@@ -18,6 +18,12 @@ function Navbar() {
              Register
           </Link>
         </ul>
+        {/* TODO SILINECEK BU ALLTAKI LINK */}
+        <ul>
+          <Link to="/dash">
+             dash
+          </Link>
+        </ul>
       </div>
     </nav>
   )

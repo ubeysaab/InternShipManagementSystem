@@ -3,7 +3,7 @@ import { FaArrowLeftLong } from "react-icons/fa6";
 import { Link } from "react-router-dom";
 
 // ! don't use yup, reactform ,formmake. if you don't how they work and how react nature is
-import inputsData from "../inputs.js";
+import inputsData from "../../inputs.js";
 import FormInput from "./FormInput";
 
 export default function LoginForm() {
